@@ -1,0 +1,14 @@
+UPDATE ivr_orders.caller SET Name='שמוליק', Address='14117 70th Rd, Flushing, NY 11367', City='??? ???',PhoneNumber='0527146368',
+                    OtherPhone='0777848477', Notes='' WHERE Id='1';
+UPDATE ivr_orders.caller SET Name='שמוליק', Address='14117 70th Rd, Flushing, NY 11367', City='??? ???',PhoneNumber='0527146368',
+                    OtherPhone='0777848477', Notes='' WHERE Id='1';
+UPDATE `orders` SET `CallerItemId`='1',`Is_Delivered`='1',`Is_Paid`='1',`TotalQuantity`='43',`TotalItems`='2',`TotalPrice`='475.2' WHERE `orders`.`Id` = '1'
+UPDATE `orders` SET `CallerItemId`='1',`Is_Delivered`='1',`Is_Paid`='1',`TotalQuantity`='75',`TotalItems`='3',`TotalPrice`='891.2' WHERE `orders`.`Id` = '1'
+UPDATE `orders` SET `CallerItemId`='1',`Is_Delivered`='1',`Is_Paid`='1',`TotalQuantity`='78',`TotalItems`='4',`TotalPrice`='911.9' WHERE `orders`.`Id` = '1'
+UPDATE ivr_orders.caller SET Name='שמוליק', Address='14117 70th Rd, Flushing, NY 11367', City='??? ???',PhoneNumber='0527146368',
+                    OtherPhone='0777848477', Notes='' WHERE Id='1';
+UPDATE `orders` SET `CallerItemId`='1',`Is_Delivered`='1',`Is_Paid`='1',`TotalQuantity`='35',`TotalItems`='1',`TotalPrice`='420' WHERE `orders`.`Id` = '1'
+UPDATE `orders` SET `CallerItemId`='1',`Is_Delivered`='1',`Is_Paid`='1',`TotalQuantity`='78',`TotalItems`='4',`TotalPrice`='911.9' WHERE `orders`.`Id` = '1'
+update `ivr_orders`.`orderitems` set `OrderId` = '1', `ProductId`='1', `CollerId` = '1', `Quantity` ='10' WHERE `Id` = '1'
+UPDATE `orders` SET `CallerItemId`='1',`Is_Delivered`='1',`Is_Paid`='1',`TotalQuantity`='53',`TotalItems`='4',`TotalPrice`='611.9' WHERE `orders`.`Id` = '1'
+UPDATE `orders` SET `CallerItemId`='1',`Is_Delivered`='1',`Is_Paid`='1',`TotalQuantity`='56',`TotalItems`='5',`TotalPrice`='703.7' WHERE `orders`.`Id` = '1'
