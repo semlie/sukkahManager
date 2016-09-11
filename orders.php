@@ -1,5 +1,9 @@
 <?php
-            require_once './managers/web_manager.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once './managers/web_manager.php';
             $manager = new web_manager();
 //            $data = $manager->GetAllOrders();
             $data = $manager->GetAllOpenOrders();
