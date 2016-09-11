@@ -48,7 +48,7 @@ class caller_dataService extends DataService implements sqlModel {
 //                . '`caller`.`Notes`="' . $caller->Notes . '" '
 //                . 'WHERE `caller`.`Id`="' . $caller->Id . '";';
 //        return $sql;
-            $sql = "UPDATE ivr_orders.caller SET Name='" . $caller->Name . "', Address='" . $caller->Address . "', City='" . $caller->City . "',PhoneNumber='" . $caller->PhoneNumber . "',
+            $sql = "UPDATE ivr_sukkah.caller SET Name='" . $caller->Name . "', Address='" . $caller->Address . "', City='" . $caller->City . "',PhoneNumber='" . $caller->PhoneNumber . "',
                     OtherPhone='" . $caller->OtherPhone . "', Notes='" . $caller->Notes . "' WHERE Id='" . $caller->Id . "';";
         return $sql;
     }
