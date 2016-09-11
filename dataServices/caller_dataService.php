@@ -32,14 +32,14 @@ class caller_dataService extends DataService implements sqlModel {
     }
 
     public function GetInsertString($caller) {
-        $sql = "INSERT INTO `ivr_orders`.`caller` (`Id`,`Name`, `Address`, `City`, `PhoneNumber`, `OtherPhone`, `Notes`,`TimeStamp`) "
+        $sql = "INSERT INTO `ivr_sukkah`.`caller` (`Id`,`Name`, `Address`, `City`, `PhoneNumber`, `OtherPhone`, `Notes`,`TimeStamp`) "
                 . "VALUES ('','" . $caller->Name . "', '" . $caller->Address . "', '" . $caller->City . "', '" . $caller->PhoneNumber . "', '" . $caller->OtherPhone . "', '" . $caller->Notes . "',CURRENT_TIMESTAMP);";
 
         return $sql;
     }
 
     public function GetUpdateString($caller) {
-//        $sql = 'UPDATE `ivr_orders`.`caller` SET '
+//        $sql = 'UPDATE `ivr_sukkah`.`caller` SET '
 //                . '`caller`.`Name`="' . $caller->Name . '", '
 //                . '`caller`.`Address`="' . $caller->Address . '", '
 //                . '`caller`.`City`="' . $caller->City . '", '
@@ -55,7 +55,7 @@ class caller_dataService extends DataService implements sqlModel {
 
     public function GetCallerByPhoneNumber($phoneNumber) {
 
-        $sql = " SELECT * FROM `ivr_orders`.`caller` WHERE `caller`.`PhoneNumber` = '" . $phoneNumber . "'";
+        $sql = " SELECT * FROM `ivr_sukkah`.`caller` WHERE `caller`.`PhoneNumber` = '" . $phoneNumber . "'";
 
         $result = $this->selectQuery($sql);
         $row = ($result != FALSE) ? mysqli_fetch_assoc($result) : '';
@@ -66,8 +66,8 @@ class caller_dataService extends DataService implements sqlModel {
 
     public function GetCallerNumberFromCallerId($callerId) {
         $sql = "select PhoneNumber 
-                from `ivr_orders`.`caller`
-                inner join `ivr_orders`.`caller_item` on `caller_item`.`CallerId` = `caller`.`Id`
+                from `ivr_sukkah`.`caller`
+                inner join `ivr_sukkah`.`caller_item` on `caller_item`.`CallerId` = `caller`.`Id`
                 where `caller_item`.`Id` = '".$callerId."'";
         $result = $this->selectQuery($sql);
         $row = ($result != FALSE) ? mysqli_fetch_assoc($result) : '';

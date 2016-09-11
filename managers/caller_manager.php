@@ -37,6 +37,9 @@ class caller_manager {
         return $caller;
     }
 
-
+    public function AddNewCaller(caller $caller) {
+        $this-> callerDataService->Add($caller);
+        return $caller;
+    }
     
 }

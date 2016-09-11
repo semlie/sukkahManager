@@ -41,13 +41,13 @@ class callerItem_dataService extends DataService implements sqlModel {
     }
 
     public function GetInsertString($callerItem) {
-        $sql = "INSERT INTO `ivr_orders`.`caller_item` (`Id`,`CallerId`, `Uid`,`TimeStamp`) "
+        $sql = "INSERT INTO `ivr_sukkah`.`caller_item` (`Id`,`CallerId`, `Uid`,`TimeStamp`) "
                 . "VALUES ('','" . $callerItem->CallerId . "', '" . $callerItem->Uid . "',CURRENT_TIMESTAMP);";
  return $sql;
     }
 
     public function GetUpdateString($callerItem) {
-        $sql = "UPDATE `ivr_orders`.`caller_item` SET "
+        $sql = "UPDATE `ivr_sukkah`.`caller_item` SET "
                 . "`CallerId`='" . $callerItem->CallerId . "',"
                 . " `Uid`='" . $callerItem->Uid . "' "
                 . "WHERE `Id`='" . $callerItem->Id . "';";

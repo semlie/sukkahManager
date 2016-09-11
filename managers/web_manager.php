@@ -11,7 +11,7 @@ require_once realpath(dirname(__FILE__)) . '/../models/orders_extend_model.php';
 
 class web_manager {
 
-    private $orderManager, $callerManager,$productManager;
+    private $orderManager, $callerManager, $productManager;
 
     function __construct() {
         $this->orderManager = new order_manager();
@@ -21,6 +21,10 @@ class web_manager {
 
     //put your code here
     public function GetAllOrders() {
+        return $this->orderManager->GetAllOrders();
+    }
+
+    public function GetAllOpenOrders() {
         return $this->orderManager->GetAllOpenOrders();
     }
 
@@ -30,6 +34,10 @@ class web_manager {
 
     public function GetAllOrderItems($orderId) {
         return $this->orderManager->GetOrderItems($orderId);
+    }
+
+    public function GroupingProduct($orderItemId) {
+        return $this->orderManager->GetOrderItem($orderItemId);
     }
 
     public function GetOrderItem($orderItemId) {
@@ -47,7 +55,7 @@ class web_manager {
     public function UpdateCaller($caller) {
         if (is_array($caller)) {
             $callerModel = $this->mapCaller($caller);
-            
+
             $this->callerManager->UpdateCaller($callerModel);
         }
     }
@@ -66,13 +74,26 @@ class web_manager {
         return $result;
     }
 
+    public function AddNewCaller($caller) {
+        if (is_array($caller)) {
+            $callerModel = $this->mapCaller($caller);
+            $this->callerManager->AddNewCaller($callerModel);
+        }
+    }
+
+    public function AddNewProduct($product) {
+        if (is_array($product)) {
+            $productModel = $this->mapProduct($product);
+            $this->productManager->AddProduct($productModel);
+        }
+    }
+
     public function AddOrderItem($orderItem) {
         $productCatlogNumber = $orderItem['ProductId'];
         $product = $this->productManager->GetProductByCatalogNumber($productCatlogNumber);
-        $orderItem['ProductId'] = $product->Id;        
+        $orderItem['ProductId'] = $product->Id;
         $orderItemModel = $this->mapOrderItem($orderItem);
         $this->orderManager->AddNewOrderItem($orderItemModel);
-        
     }
 
     public function UpdateOrderItem($orderItem) {
@@ -82,14 +103,34 @@ class web_manager {
         }
     }
 
+    public function UpdateProduct($orderItem) {
+        if (is_array($orderItem)) {
+            $productModel = $this->mapProduct($orderItem);
+            $this->productManager->UpdateProduct($productModel);
+        }
+    }
+
+    private function mapProduct($row) {
+        $result = new product;
+        $result->CatalogNumber = $row['CatalogNumber'];
+        $result->Id = isset($row['ProductId']) ? $row['ProductId'] : '';
+        $result->Name = $row['Name'];
+        $result->Price = $row['Price'];
+        $result->RegularPrice = $row['RegularPrice'];
+        $result->Size = isset($row['Size']) ? $row['Size'] : '';
+        $result->TimeStamp = isset($row['TimeStamp']) ? $row['TimeStamp'] : '';
+
+        return $result;
+    }
+
     private function mapOrderItem($row) {
         $result = new order_item;
         $result->CollerId = $row['CollerId'];
-        $result->Id = isset($row['OrderItemId']) ? $row['OrderItemId'] :'';
+        $result->Id = isset($row['OrderItemId']) ? $row['OrderItemId'] : '';
         $result->OrderId = $row['OrderId'];
         $result->ProductId = $row['ProductId'];
         $result->Quantity = $row['Quantity'];
-        $result->TimeStamp = isset($row['TimeStamp']) ? $row['TimeStamp'] :'';
+        $result->TimeStamp = isset($row['TimeStamp']) ? $row['TimeStamp'] : '';
         return $result;
     }
 

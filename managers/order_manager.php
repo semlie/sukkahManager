@@ -47,9 +47,11 @@ class order_manager {
     public function GetAllClosedOrders() {
         return $this->orderDataService->GetAllOrdersExtend();
     }
-
-    public function GetAllOpenOrders() {
+    public function GetAllOrders() {
         return $this->orderDataService->GetAllOrdersExtend();
+    }
+    public function GetAllOpenOrders() {
+        return $this->orderDataService->GetAllOpenOrdersExtend();
     }
 
     public function GetOrderItems($orderId) {

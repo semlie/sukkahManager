@@ -54,18 +54,18 @@ class orderItem_dataService extends DataService implements sqlModel {
     }
 
     public function GetInsertString($orderItem) {
-        $sql = "insert into `ivr_orders`.`orderitems` (`Id`, `OrderId`, `ProductId`, `CollerId`, `Quantity`, `TimeStamp`) "
+        $sql = "insert into `ivr_sukkah`.`orderitems` (`Id`, `OrderId`, `ProductId`, `CollerId`, `Quantity`, `TimeStamp`) "
                 . "VALUES (NULL, '" . $orderItem->OrderId . "', '" . $orderItem->ProductId . "', '" . $orderItem->CollerId . "', '" . $orderItem->Quantity . "', CURRENT_TIMESTAMP);  ";
         return $sql;
     }
 
     public function GetUpdateString($orderItem) {
-        $sql = "update `ivr_orders`.`orderitems` set `OrderId` = '" . $orderItem->OrderId . "', `ProductId`='" . $orderItem->ProductId . "', `CollerId` = '" . $orderItem->CollerId . "', `Quantity` ='" . $orderItem->Quantity . "' WHERE `Id` = '" . $orderItem->Id . "'";
+        $sql = "update `ivr_sukkah`.`orderitems` set `OrderId` = '" . $orderItem->OrderId . "', `ProductId`='" . $orderItem->ProductId . "', `CollerId` = '" . $orderItem->CollerId . "', `Quantity` ='" . $orderItem->Quantity . "' WHERE `Id` = '" . $orderItem->Id . "'";
         return $sql;
     }
     
     public function GetAllItemsOfOrder($orderId){
-        $sql = " SELECT * FROM `ivr_orders`.`orderitems` WHERE `orderitems`.`OrderId` = '".$orderId."'";
+        $sql = " SELECT * FROM `ivr_sukkah`.`orderitems` WHERE `orderitems`.`OrderId` = '".$orderId."'";
 
         $result = $this->selectQuery($sql);
         $modelResult = array();
@@ -80,8 +80,8 @@ class orderItem_dataService extends DataService implements sqlModel {
     }
     public function GetAllItemsOfOrderToPrintModel($orderId){
         $sql = " SELECT `orderitems`.`Id`,`orderitems`.`OrderId`, `orderitems`.`ProductId` ,`products`.`Price`, `orderitems`.`Quantity`,`products`.`Name`,`products`.`CatalogNumber`
-                FROM `ivr_orders`.`orderitems`
-                inner join `ivr_orders`.`products` on `orderitems`.`ProductId` = `products`.`Id`
+                FROM `ivr_sukkah`.`orderitems`
+                inner join `ivr_sukkah`.`products` on `orderitems`.`ProductId` = `products`.`Id`
                 where `orderitems`.`OrderId` ='".$orderId."' ";
 
         $result = $this->selectQuery($sql);
