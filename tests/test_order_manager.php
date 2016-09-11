@@ -9,7 +9,7 @@ $manager = new order_manager();
 
 $open =$manager->GetAllOpenOrders();
 var_dump($open);
-$order = $manager->GetOrderById(1);
+$order = $manager->GetOrderById(2);
 var_dump($order);
 
 $orderItems = $manager->GetOrderItems($order->OrderId);
@@ -19,5 +19,5 @@ $orderItems[0]->Quantity = $orderItems[0]->Quantity+2;
 var_dump($orderItems);
 $manager->UpdateOrderItem($orderItems[0]);
 
-$order1 = $manager->GetOrderById(1);
+$order1 = $manager->GetOrderById(2);
 var_dump($order1);
