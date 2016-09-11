@@ -6,8 +6,8 @@ error_reporting(E_ALL);
 $manager = new web_manager();
 $orderId = isset($_GET["orderid"]) ? $_GET["orderid"] : "";
 $func = isset($_GET["func"]) ? $_GET["func"] : '';
-$postOrderAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?XDEBUG_SESSION_START=netbeans-xdebug&func=order&orderid=" . $orderId;
-$postCallerAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?XDEBUG_SESSION_START=netbeans-xdebug&func=caller&orderid=" . $orderId;
+$postOrderAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "func=order&orderid=" . $orderId;
+$postCallerAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?func=caller&orderid=" . $orderId;
 
 
 if (!empty($_POST)) {

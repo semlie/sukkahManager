@@ -1,9 +1,13 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once './managers/web_manager.php';
 
 $manager = new web_manager();
 $orderItemId = isset($_GET["orderitemid"]) ? $_GET["orderitemid"] : die();
-$postAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?XDEBUG_SESSION_START=netbeans-xdebug&orderitemid=" . $orderItemId;
+$postAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?orderitemid=" . $orderItemId;
 
 
 if (!empty($_POST)) {
