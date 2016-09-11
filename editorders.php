@@ -19,6 +19,7 @@ if (!empty($_POST)) {
     }
 }
 $data = !empty($orderId) ? $manager->GetOrder($orderId) : "";
+var_dump($data);
 ?>
 <?php            require_once 'header.php';
 ?>
