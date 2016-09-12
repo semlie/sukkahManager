@@ -1,10 +1,10 @@
 <?php
 require_once './managers/web_manager.php';
 $manager = new web_manager();
-$orderId = isset($_GET["orderid"]) ? $_GET["orderid"] : "";
-$data = !empty($orderId) ? $manager->GetOrder($orderId) : die();
+$callerId = isset($_GET["orderid"]) ? $_GET["orderid"] : "";
+$data = !empty($callerId) ? $manager->GetOrder($callerId) : die();
 $counter = 0;
-$orderItems = $manager->GetAllOrderItems($orderId);
+$orderItems = $manager->GetAllOrderItems($callerId);
 
 function discountPrice($price) {
     if (intval($price) >= 300) {

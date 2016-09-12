@@ -12,3 +12,29 @@ UPDATE `orders` SET `CallerItemId`='1',`Is_Delivered`='1',`Is_Paid`='1',`TotalQu
 update `ivr_orders`.`orderitems` set `OrderId` = '1', `ProductId`='1', `CollerId` = '1', `Quantity` ='10' WHERE `Id` = '1'
 UPDATE `orders` SET `CallerItemId`='1',`Is_Delivered`='1',`Is_Paid`='1',`TotalQuantity`='53',`TotalItems`='4',`TotalPrice`='611.9' WHERE `orders`.`Id` = '1'
 UPDATE `orders` SET `CallerItemId`='1',`Is_Delivered`='1',`Is_Paid`='1',`TotalQuantity`='56',`TotalItems`='5',`TotalPrice`='703.7' WHERE `orders`.`Id` = '1'
+UPDATE ivr_sukkah.caller SET Name='ישראל', Address='הרצוג 16', City='בני ברק',PhoneNumber='0444444',
+                    OtherPhone='', Notes='לא ידוע' WHERE Id='';
+UPDATE ivr_sukkah.caller SET Name='ישראל', Address='הרצוג 16', City='בני ברק',PhoneNumber='044444',
+                    OtherPhone='', Notes='לא ידוע' WHERE Id='';
+UPDATE ivr_sukkah.caller SET Name='יעקבr', Address='בבא סאלי 13', City='Modiein Eilit',PhoneNumber='527634791',
+                    OtherPhone='527634791', Notes='' WHERE Id='';
+UPDATE ivr_sukkah.caller SET Name='יעקבr', Address='בבא סאלי 13', City='Modiein Eilit',PhoneNumber='527634791',
+                    OtherPhone='527634791', Notes='' WHERE Id='';
+UPDATE ivr_sukkah.caller SET Name='יעקב', Address='בבא סאלי 13w', City='Modiein Eilit',PhoneNumber='527634791',
+                    OtherPhone='527634791', Notes='' WHERE Id='';
+UPDATE ivr_sukkah.caller SET Name='we', Address='בבא סאלי 13', City='Modiein Eilit',PhoneNumber='527634791',
+                    OtherPhone='527634791', Notes='' WHERE Id='';
+UPDATE ivr_sukkah.caller SET Name='יעקבew', Address='בבא סאלי 13', City='Modiein Eilit',PhoneNumber='527634791',
+                    OtherPhone='527634791', Notes='' WHERE Id='';
+UPDATE ivr_sukkah.caller SET Name='יעקבew', Address='בבא סאלי 13', City='Modiein Eilit',PhoneNumber='527634791',
+                    OtherPhone='527634791', Notes='' WHERE Id='';
+UPDATE ivr_sukkah.caller SET Name='we', Address='בבא סאלי 13', City='Modiein Eilit',PhoneNumber='527634791',
+                    OtherPhone='527634791', Notes='' WHERE Id='';
+UPDATE ivr_sukkah.caller SET Name='יעקב3', Address='בבא סאלי 13', City='Modiein Eilit',PhoneNumber='527634791',
+                    OtherPhone='527634791', Notes='' WHERE Id='';
+UPDATE ivr_sukkah.caller SET Name='יעקבew', Address='בבא סאלי 13', City='Modiein Eilit',PhoneNumber='527634791',
+                    OtherPhone='527634791', Notes='' WHERE Id='';
+UPDATE ivr_sukkah.caller SET Name='יעקבew', Address='בבא סאלי 13', City='Modiein Eilit',PhoneNumber='527634791',
+                    OtherPhone='527634791', Notes='' WHERE Id='29';
+UPDATE ivr_sukkah.caller SET Name='יעקבew', Address='בבא סאלי 13', City='Modiein Eilit',PhoneNumber='527634791',
+                    OtherPhone='527634791', Notes='' WHERE Id='29';

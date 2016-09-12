@@ -23,12 +23,25 @@ class caller_manager {
         return $this->callerDataService->GetAll();
     }
     
-    public function GetCallerById($callerItemId) {
+    public function GetNewCallerItem($caller) {
+        $callerItem = new caller_item();
+        $callerItem->Uid = uniqid();
+        $callerItem->CallerId = $caller->Id;
+        $this->callerItemDataService->Add($callerItem);
+        return $callerItem;
+    }
+    
+    public function GetCallerById($callerId) {
+        return $this->callerDataService->getById($callerId);
+    }
+
+    public function GetCallerByCallerItem($callerItemId) {
         $callerId = $this->_getCallerByCallerItem($callerItemId);
         return $this->callerDataService->getById($callerId);
     }
+
     private function _getCallerByCallerItem($callerItemId) {
-        $temp = $this->callerItemDataService->getById($callerItemId);
+        $temp = $this->callerDataServiceDataService->getById($callerItemId);
         $result = !empty($temp)?$temp->CallerId:"";
         return $result;
     }
@@ -39,6 +52,7 @@ class caller_manager {
 
     public function AddNewCaller(caller $caller) {
         $this-> callerDataService->Add($caller);
+        $this->GetNewCallerItem($caller);
         return $caller;
     }
     

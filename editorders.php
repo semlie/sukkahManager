@@ -4,10 +4,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $manager = new web_manager();
-$orderId = isset($_GET["orderid"]) ? $_GET["orderid"] : "";
+$callerId = isset($_GET["orderid"]) ? $_GET["orderid"] : "";
 $func = isset($_GET["func"]) ? $_GET["func"] : '';
-$postOrderAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "func=order&orderid=" . $orderId;
-$postCallerAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?func=caller&orderid=" . $orderId;
+$postOrderAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "func=order&orderid=" . $callerId;
+$postCallerAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?func=caller&orderid=" . $callerId;
 
 
 if (!empty($_POST)) {
@@ -18,7 +18,7 @@ if (!empty($_POST)) {
         $manager->UpdateCaller($_POST);
     }
 }
-$data = !empty($orderId) ? $manager->GetOrder($orderId) : "";
+$data = !empty($callerId) ? $manager->GetOrder($callerId) : "";
 var_dump($data);
 ?>
 <?php            require_once 'header.php';

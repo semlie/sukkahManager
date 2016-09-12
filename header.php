@@ -63,7 +63,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html">גרביים</a>
+                        <a class="navbar-brand" href="index.html">סוכות</a>
                     </div>
                     <!-- /.navbar-header -->
 
@@ -84,6 +84,9 @@
                                 </li>
                                 <li>
                                     <a href="callers.php"><i class="fa fa-dashboard fa-fw"></i> Callers</a>
+                                </li>
+                                <li>
+                                    <a href="productsreport.php"><i class="fa fa-dashboard fa-fw"></i> Products sales report</a>
                                 </li>
 
                             </ul>

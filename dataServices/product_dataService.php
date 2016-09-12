@@ -73,7 +73,29 @@ class product_dataService extends DataService implements sqlModel {
                where `orderitems`.`ProductId` = `products`.`Id`
 
                group by `orderitems`.`ProductId`;";
-        return $sql;
-    }
+        
+        $result = $this->selectQuery($sql);
+        $modelResult = array();
+         if ($result != FALSE) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                // var_dump($row);
+                $modelResult[] = $this->mapProductReport($row);
+            }
+        }
+        return $modelResult;
 
+  
+    }
+    private function mapProductReport($row) {
+        $result = new productReport();
+        $result->CatalogNumber = $row['CatalogNumber'];
+        $result->Id = isset($row['ProductId']) ? $row['ProductId'] : '';
+        $result->Name = $row['Name'];
+        $result->TotelPrice = $row['TotelPrice'];
+        $result->Quntity = $row['Quntity'];
+        $result->Category = isset($row['Category']) ? $row['Category'] : '';
+        $result->TimeStamp = isset($row['TimeStamp']) ? $row['TimeStamp'] : '';
+
+        return $result;
+    }
 }

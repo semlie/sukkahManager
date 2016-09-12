@@ -6,6 +6,7 @@ require_once realpath(dirname(__FILE__)) . '/product_manager.php';
 require_once realpath(dirname(__FILE__)) . '/../models/order_item.php';
 require_once realpath(dirname(__FILE__)) . '/../models/order.php';
 require_once realpath(dirname(__FILE__)) . '/../models/caller.php';
+require_once realpath(dirname(__FILE__)) . '/../models/product_report.php';
 require_once realpath(dirname(__FILE__)) . '/../models/order_item_print.php';
 require_once realpath(dirname(__FILE__)) . '/../models/orders_extend_model.php';
 
@@ -36,8 +37,9 @@ class web_manager {
         return $this->orderManager->GetOrderItems($orderId);
     }
 
-    public function GroupingProduct($orderItemId) {
-        return $this->orderManager->GetOrderItem($orderItemId);
+    public function GroupingProduct() {
+        return $this->productManager->GetProdectSoldReport();
+
     }
 
     public function GetOrderItem($orderItemId) {
@@ -47,7 +49,7 @@ class web_manager {
     public function GetAllCallers() {
         return $this->callerManager->GetAllCallers();
     }
-
+    
     public function GetCallerId($callerId) {
         return $this->callerManager->GetCallerById($callerId);
     }
@@ -62,14 +64,14 @@ class web_manager {
 
     private function mapCaller($row) {
         $result = new caller;
-        $result->Id = $this->clean($row['CallerId']);
+        $result->Id = isset($row['CallerId'])?$this->clean($row['CallerId']):'';
         $result->Name = $this->clean($row['Name']);
         $result->Address = $this->clean($row['Address']);
         $result->City = $this->clean($row['City']);
         $result->PhoneNumber = $this->clean($row['PhoneNumber']);
         $result->OtherPhone = $this->clean($row['OtherPhone']);
         $result->Notes = $this->clean($row['Notes']);
-        $result->TimeStamp = $this->clean($row['TimeStamp']);
+        $result->TimeStamp = isset($row['TimeStamp']) ? $row['TimeStamp'] : '';
 
         return $result;
     }
@@ -77,7 +79,14 @@ class web_manager {
     public function AddNewCaller($caller) {
         if (is_array($caller)) {
             $callerModel = $this->mapCaller($caller);
-            $this->callerManager->AddNewCaller($callerModel);
+            $results = $this->callerManager->AddNewCaller($callerModel);
+        }
+    }
+        public function AddNewCallerItem($caller) {
+        if (is_array($caller)) {
+            $callerModel = $this->mapCaller($caller);
+            $results = $this->callerManager->AddNewCaller($callerModel);
+            
         }
     }
 
@@ -85,6 +94,7 @@ class web_manager {
         if (is_array($product)) {
             $productModel = $this->mapProduct($product);
             $this->productManager->AddProduct($productModel);
+            
         }
     }
 
@@ -118,6 +128,19 @@ class web_manager {
         $result->Price = $row['Price'];
         $result->RegularPrice = $row['RegularPrice'];
         $result->Size = isset($row['Size']) ? $row['Size'] : '';
+        $result->TimeStamp = isset($row['TimeStamp']) ? $row['TimeStamp'] : '';
+
+        return $result;
+    }
+
+    private function mapProductReport($row) {
+        $result = new productReport();
+        $result->CatalogNumber = $row['CatalogNumber'];
+        $result->Id = isset($row['ProductId']) ? $row['ProductId'] : '';
+        $result->Name = $row['Name'];
+        $result->TotelPrice = $row['TotelPrice'];
+        $result->Quntity = $row['Quntity'];
+        $result->Category = isset($row['Category']) ? $row['Category'] : '';
         $result->TimeStamp = isset($row['TimeStamp']) ? $row['TimeStamp'] : '';
 
         return $result;

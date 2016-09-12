@@ -2,8 +2,8 @@
 require_once './managers/web_manager.php';
 
 $manager = new web_manager();
-$orderId = isset($_GET["orderid"]) ? $_GET["orderid"] : die();
-$postAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?XDEBUG_SESSION_START=netbeans-xdebug&orderid=" . $orderId;
+$callerId = isset($_GET["orderid"]) ? $_GET["orderid"] : die();
+$postAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?XDEBUG_SESSION_START=netbeans-xdebug&orderid=" . $callerId;
 
 
 if (!empty($_POST)) {
@@ -13,7 +13,7 @@ if (!empty($_POST)) {
 
 
 
-$data = !empty($orderId) ? $manager->GetOrder($orderId) : "";
+$data = !empty($callerId) ? $manager->GetOrder($callerId) : "";
 var_dump($data);
 ?>
 <?php            require_once 'header.php';
