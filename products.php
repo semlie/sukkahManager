@@ -48,7 +48,7 @@ require_once './managers/web_manager.php';
                                             <?php foreach ($data as $value) {
                                                 ?>
                                                 <tr class="odd gradeX">
-                                                    <td><a href="editnewproducts.php?productid=<?php echo $value->Id; ?>"> <?php echo $value->Id; ?></a> </td>
+                                                    <td><a href="addeditproducts.php?productid=<?php echo $value->Id; ?>"> <?php echo $value->Id; ?></a> </td>
                                                     <td><?php echo $value->CatalogNumber; ?></td>
                                                     <td><?php echo $value->Category; ?></td>
                                                     <td><?php echo $value->Name; ?></td>
@@ -56,7 +56,7 @@ require_once './managers/web_manager.php';
                                                     <td><?php echo $value->Price; ?></td>
                                                     <td><?php echo $value->RegularPrice; ?></td>
                                                     
-                                                    <td><a href="editnewproducts.php?productid=<?php echo $value->Id; ?>"> Edit</a> </td>
+                                                    <td><a href="addeditproducts.php?productid=<?php echo $value->Id; ?>"> Edit</a> </td>
 
                                                 </tr>
 <?php } ?>

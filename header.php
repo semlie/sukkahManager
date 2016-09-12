@@ -86,8 +86,12 @@
                                     <a href="callers.php"><i class="fa fa-dashboard fa-fw"></i> Callers</a>
                                 </li>
                                 <li>
+                                    <a href="products.php"><i class="fa fa-dashboard fa-fw"></i>Products </a>
+                                </li>
+                                <li>
                                     <a href="productsreport.php"><i class="fa fa-dashboard fa-fw"></i> Products sales report</a>
                                 </li>
+                                
 
                             </ul>
                         </div>

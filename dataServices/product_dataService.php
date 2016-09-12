@@ -52,8 +52,8 @@ class product_dataService extends DataService implements sqlModel {
     }
 
     public function GetInsertString($product) {
-        $sql = "INSERT INTO `ivr_sukkah`.`products`(`Id`,`CatalogNumber`,`FirstCategory`,`SecondaryCategory`,`Material`,`Thickness`,`Color`,`Size`,`Price`,`Manufacturer`,`Brand`,`Strength`,`Example`,`Name`,`Description`)VALUES('',"
-                . "'" . $product->CatalogNumber . "','" . $product->FirstCategory . "','" . $product->SecondaryCategory . "','" . $product->Material . "','" . $product->Thickness . "','" . $product->Color . "','" . $product->Size . "','" . $product->Price . "','" . $product->Manufacturer . "','" . $product->Brand . "','" . $product->Strength . "','" . $product->Example . "','" . $product->Name . "','" . $product->Description . "');";
+        $sql = "INSERT INTO `ivr_sukkah`.`products`(`Id`,`CatalogNumber`,`Category`,`Size`,`Price`,`RegularPrice`,`Name`)VALUES('',"
+        . "'".$product->CatalogNumber."','".$product->Category."','".$product->Size."','".$product->Price."','".$product->RegularPrice."','".$product->Name."');";
         return $sql;
     }
 

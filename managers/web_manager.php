@@ -53,6 +53,10 @@ class web_manager {
         return $this->productManager->GetAllProdects();
     }
     
+    public function GetProductById($productId) {
+        return $this->productManager->getProbuctById($productId);
+    }
+    
     public function GetCallerId($callerId) {
         return $this->callerManager->GetCallerById($callerId);
     }
@@ -129,6 +133,7 @@ class web_manager {
         $result->Id = isset($row['ProductId']) ? $row['ProductId'] : '';
         $result->Name = $row['Name'];
         $result->Price = $row['Price'];
+        $result->Category = $row['Category'];
         $result->RegularPrice = $row['RegularPrice'];
         $result->Size = isset($row['Size']) ? $row['Size'] : '';
         $result->TimeStamp = isset($row['TimeStamp']) ? $row['TimeStamp'] : '';
