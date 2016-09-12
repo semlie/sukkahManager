@@ -66,8 +66,8 @@ class product_dataService extends DataService implements sqlModel {
         $sql = "SELECT `orderitems`.`ProductId`, 
                 `orderitems`.`Quantity`, 
                `products`.`Id`,`products`.`CatalogNumber`, `products`.`Name`, `products`.`Price`, 
-               sum(`orderitems`.`Quantity`) as totel,
-               sum(`orderitems`.`Quantity`)*`products`.`Price` as TotelSum
+               sum(`orderitems`.`Quantity`) as TotelQuntity,
+               sum(`orderitems`.`Quantity`)*`products`.`Price` as TotelPrice
 
                FROM `ivr_sukkah`.`orderitems`,`ivr_sukkah`.`products`
                where `orderitems`.`ProductId` = `products`.`Id`
@@ -92,7 +92,7 @@ class product_dataService extends DataService implements sqlModel {
         $result->Id = isset($row['ProductId']) ? $row['ProductId'] : '';
         $result->Name = $row['Name'];
         $result->TotelPrice = $row['TotelPrice'];
-        $result->Quntity = $row['Quntity'];
+        $result->Quntity = $row['TotelQuntity'];
         $result->Category = isset($row['Category']) ? $row['Category'] : '';
         $result->TimeStamp = isset($row['TimeStamp']) ? $row['TimeStamp'] : '';
 
