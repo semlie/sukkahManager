@@ -33,9 +33,16 @@ class product_manager {
         $this->productDataService->Add($product);
         return $product;
     }
- public function GetProdectSoldReport() {
+
+    public function GetProdectSoldReport() {
         $sales = $this->productDataService->GetSalesProdactReport();
         return $sales;
     }
+
+    public function GetAllProdects() {
+       return $this->productDataService->GetAll();
+
+    }
+
 //put your code here
 }

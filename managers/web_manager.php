@@ -49,6 +49,9 @@ class web_manager {
     public function GetAllCallers() {
         return $this->callerManager->GetAllCallers();
     }
+    public function GetAllProducts() {
+        return $this->productManager->GetAllProdects();
+    }
     
     public function GetCallerId($callerId) {
         return $this->callerManager->GetCallerById($callerId);
