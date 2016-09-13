@@ -3,12 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="אשירה">
-            <file>file:/I:/www/gerevManager/managers/product_manager.php</file>
-            <file>file:/I:/www/gerevManager/tests/testDB.php</file>
-            <file>file:/I:/www/gerevManager/managers/order_manager.php</file>
-            <file>file:/I:/www/gerevManager/config.php</file>
-            <file>file:/I:/www/gerevManager/managers/caller_manager.php</file>
-            <file>file:/I:/www/gerevManager/callers.php</file>
+            <file>file:/I:/www/sukkaMeneger/redirect.php</file>
+            <file>file:/I:/www/sukkaMeneger/callers.php</file>
+            <file>file:/I:/www/sukkaMeneger/addeditproducts.php</file>
+            <file>file:/I:/www/sukkaMeneger/editorders.php</file>
+            <file>file:/I:/www/sukkaMeneger/products.php</file>
+            <file>file:/I:/www/sukkaMeneger/models/order.php</file>
+            <file>file:/I:/www/sukkaMeneger/orderdetails.php</file>
+            <file>file:/I:/www/sukkaMeneger/managers/web_manager.php</file>
+            <file>file:/I:/www/sukkaMeneger/managers/order_manager.php</file>
+            <file>file:/I:/www/sukkaMeneger/managers/caller_manager.php</file>
         </group>
     </open-files>
 </project-private>

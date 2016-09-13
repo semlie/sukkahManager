@@ -25,7 +25,7 @@ var_dump($data);
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">עריכת הוספת לקוח</h1>
+            <h1 class="page-header">עריכת הוספת פריטים</h1>
         </div>
         <!-- /.col-lg-12 -->
 

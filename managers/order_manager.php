@@ -25,6 +25,10 @@ class order_manager {
         return $order;
     }
 
+    private function AddNewOrder(order $order) {
+        $this->orderDataService->Add($order);
+    }
+
     public function AddNewOrderItem(order_item $orderItem) {
         //  public function AddNewItemForOrder($callerId, $orderId, $producrId, $quantity) {
 //        $orderItem = new order_item();
@@ -47,9 +51,11 @@ class order_manager {
     public function GetAllClosedOrders() {
         return $this->orderDataService->GetAllOrdersExtend();
     }
+
     public function GetAllOrders() {
         return $this->orderDataService->GetAllOrdersExtend();
     }
+
     public function GetAllOpenOrders() {
         return $this->orderDataService->GetAllOpenOrdersExtend();
     }

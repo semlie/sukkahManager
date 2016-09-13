@@ -2,6 +2,7 @@
             require_once './managers/web_manager.php';
             $manager = new web_manager();
             $data = $manager->GetAllCallers();
+
             ?>
 
 <?php            require_once 'header.php';
@@ -36,6 +37,7 @@
                                                 <th>Notes</th>
 
                                                 <th>edit</th>
+                                                <th>New order</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -52,6 +54,7 @@
                                                 <td><?php echo $value->OtherPhone ;?></td>
                                                 <td><?php echo $value->Notes ;?></td>
 
+                                                <td><a href="addeditcaller.php?func=edit&callerid=<?php echo $value->Id ;?>"> Edit</a> </td>
                                                 <td><a href="addeditcaller.php?func=edit&callerid=<?php echo $value->Id ;?>"> Edit</a> </td>
                                                 
                                             </tr>

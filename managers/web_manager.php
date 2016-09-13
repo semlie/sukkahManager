@@ -112,7 +112,11 @@ class web_manager {
         $orderItemModel = $this->mapOrderItem($orderItem);
         $this->orderManager->AddNewOrderItem($orderItemModel);
     }
-
+    public function AddOrder($order) {
+        
+        //create new callerItem
+        //create new order with this orderItem
+    }
     public function UpdateOrderItem($orderItem) {
         if (is_array($orderItem)) {
             $orderItemModel = $this->mapOrderItem($orderItem);
