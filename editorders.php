@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 $manager = new web_manager();
 $productid = isset($_GET["orderid"]) ? $_GET["orderid"] : "";
 $func = isset($_GET["func"]) ? $_GET["func"] : '';
-$postOrderAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "func=order&orderid=" . $productid;
+$postOrderAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?func=order&orderid=" . $productid;
 $postCallerAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?func=caller&orderid=" . $productid;
 
 
