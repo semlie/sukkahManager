@@ -39,7 +39,6 @@ class web_manager {
 
     public function GroupingProduct() {
         return $this->productManager->GetProdectSoldReport();
-
     }
 
     public function GetOrderItem($orderItemId) {
@@ -49,14 +48,15 @@ class web_manager {
     public function GetAllCallers() {
         return $this->callerManager->GetAllCallers();
     }
+
     public function GetAllProducts() {
         return $this->productManager->GetAllProdects();
     }
-    
+
     public function GetProductById($productId) {
         return $this->productManager->getProbuctById($productId);
     }
-    
+
     public function GetCallerId($callerId) {
         return $this->callerManager->GetCallerById($callerId);
     }
@@ -71,7 +71,7 @@ class web_manager {
 
     private function mapCaller($row) {
         $result = new caller;
-        $result->Id = isset($row['CallerId'])?$this->clean($row['CallerId']):'';
+        $result->Id = isset($row['CallerId']) ? $this->clean($row['CallerId']) : '';
         $result->Name = $this->clean($row['Name']);
         $result->Address = $this->clean($row['Address']);
         $result->City = $this->clean($row['City']);
@@ -89,11 +89,11 @@ class web_manager {
             $results = $this->callerManager->AddNewCaller($callerModel);
         }
     }
-        public function AddNewCallerItem($caller) {
+
+    public function AddNewCallerItem($caller) {
         if (is_array($caller)) {
             $callerModel = $this->mapCaller($caller);
             $results = $this->callerManager->AddNewCaller($callerModel);
-            
         }
     }
 
@@ -101,7 +101,6 @@ class web_manager {
         if (is_array($product)) {
             $productModel = $this->mapProduct($product);
             $this->productManager->AddProduct($productModel);
-            
         }
     }
 
@@ -112,11 +111,16 @@ class web_manager {
         $orderItemModel = $this->mapOrderItem($orderItem);
         $this->orderManager->AddNewOrderItem($orderItemModel);
     }
-    public function AddOrder($order) {
-        
-        //create new callerItem
-        //create new order with this orderItem
+
+    public function CreateOrder($callerId) {
+
+        $callerItem = $this->callerManager->AddNewCallerItem($callerId);
+        $order = new order();
+        $order->CallerItemId = $callerItem->Id;
+        $this->orderManager->AddNewOrder($order);
+        return $order->Id;
     }
+
     public function UpdateOrderItem($orderItem) {
         if (is_array($orderItem)) {
             $orderItemModel = $this->mapOrderItem($orderItem);

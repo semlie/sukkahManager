@@ -19,18 +19,23 @@ class caller_manager {
     public function GetPhoneNumbar($callerId) {
         return $this->callerDataService->GetCallerNumberFromCallerId($callerId);
     }
+
     public function GetAllCallers() {
         return $this->callerDataService->GetAll();
     }
-    
+
     public function GetNewCallerItem($caller) {
+        return $this->AddNewCallerItem($caller->Id);
+    }
+
+    public function AddNewCallerItem($callerId) {
         $callerItem = new caller_item();
         $callerItem->Uid = uniqid();
-        $callerItem->CallerId = $caller->Id;
+        $callerItem->CallerId = $callerId;
         $this->callerItemDataService->Add($callerItem);
         return $callerItem;
     }
-    
+
     public function GetCallerById($callerId) {
         return $this->callerDataService->getById($callerId);
     }
@@ -42,18 +47,19 @@ class caller_manager {
 
     private function _getCallerByCallerItem($callerItemId) {
         $temp = $this->callerDataServiceDataService->getById($callerItemId);
-        $result = !empty($temp)?$temp->CallerId:"";
+        $result = !empty($temp) ? $temp->CallerId : "";
         return $result;
     }
+
     public function UpdateCaller(caller $caller) {
-        $this-> callerDataService->Update($caller);
+        $this->callerDataService->Update($caller);
         return $caller;
     }
 
     public function AddNewCaller(caller $caller) {
-        $this-> callerDataService->Add($caller);
+        $this->callerDataService->Add($caller);
         $this->GetNewCallerItem($caller);
         return $caller;
     }
-    
+
 }

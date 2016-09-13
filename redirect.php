@@ -3,16 +3,17 @@ require_once './managers/web_manager.php';
 $manager = new web_manager();
 
 
-function parsGet($param) {
+function parsGet() {
     global $manager;
     $func = isset($_GET["func"]) ? $_GET["func"] : '';
 
-    if ($func == "new") {
-        $manager->AddNewProduct($_POST);
+    if ($func == "neworder") {
+       $data= isset($_GET["callerid"])?$manager->CreateOrder($_GET["callerid"]):'';
+       Redirect("orderdetails.php?orderid=".$data);
     }
 }
 
-function parsPost($param) {
+function parsPost() {
         global $manager;
 
 }
@@ -28,3 +29,5 @@ function Redirect($url)
     die();
 }
 
+parsGet();
+parsPost();

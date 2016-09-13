@@ -55,7 +55,7 @@
                                                 <td><?php echo $value->Notes ;?></td>
 
                                                 <td><a href="addeditcaller.php?func=edit&callerid=<?php echo $value->Id ;?>"> Edit</a> </td>
-                                                <td><a href="addeditcaller.php?func=edit&callerid=<?php echo $value->Id ;?>"> Edit</a> </td>
+                                                <td><a href="redirect.php?func=neworder&callerid=<?php echo $value->Id ;?>"> NewOrder</a> </td>
                                                 
                                             </tr>
                                             <?php }?>

@@ -25,19 +25,12 @@ class order_manager {
         return $order;
     }
 
-    private function AddNewOrder(order $order) {
+    public function AddNewOrder(order $order) {
         $this->orderDataService->Add($order);
     }
 
     public function AddNewOrderItem(order_item $orderItem) {
-        //  public function AddNewItemForOrder($callerId, $orderId, $producrId, $quantity) {
-//        $orderItem = new order_item();
-//
-//        $orderItem->CollerId = $callerId;
-//        $orderItem->OrderId = $orderId;
-//        $orderItem->ProductId = $producrId;
-//        $orderItem->Quantity = $quantity;
-
+        
         $this->orderItemDataService->Add($orderItem);
         $this->UpdateOrderSum($orderItem->OrderId);
     }
