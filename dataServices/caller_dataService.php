@@ -26,33 +26,33 @@ class caller_dataService extends DataService implements sqlModel {
         $result->PhoneNumber = $row['PhoneNumber'];
         $result->OtherPhone = $row['OtherPhone'];
         $result->Notes = $row['Notes'];
+        $result->Region = $row['Region'];
         $result->TimeStamp = $row['TimeStamp'];
 
         return $result;
     }
 
+
     public function GetInsertString($caller) {
-        $sql = "INSERT INTO `ivr_sukkah`.`caller` (`Id`,`Name`, `Address`, `City`, `PhoneNumber`, `OtherPhone`, `Notes`,`TimeStamp`) "
-                . "VALUES ('','" . $caller->Name . "', '" . $caller->Address . "', '" . $caller->City . "', '" . $caller->PhoneNumber . "', '" . $caller->OtherPhone . "', '" . $caller->Notes . "',CURRENT_TIMESTAMP);";
+        $sql = "INSERT INTO `ivr_sukkah`.`caller` (`Id`,`Name`, `Address`, `City`, `PhoneNumber`, `OtherPhone`, `Notes`,`TimeStamp`,`Region`) "
+                . "VALUES ('','" . $caller->Name . "', '" . $caller->Address . "', '" . $caller->City . "', '" . $caller->PhoneNumber . "', '" . $caller->OtherPhone . "', '" . $caller->Notes . "',CURRENT_TIMESTAMP, '".$caller->Region."');";
 
         return $sql;
     }
 
     public function GetUpdateString($caller) {
-//        $sql = 'UPDATE `ivr_sukkah`.`caller` SET '
-//                . '`caller`.`Name`="' . $caller->Name . '", '
-//                . '`caller`.`Address`="' . $caller->Address . '", '
-//                . '`caller`.`City`="' . $caller->City . '", '
-//                . '`caller`.`PhoneNumber`="' . $caller->PhoneNumber . '", '
-//                . '`caller`.`OtherPhone`="' . $caller->OtherPhone . '", '
-//                . '`caller`.`Notes`="' . $caller->Notes . '" '
-//                . 'WHERE `caller`.`Id`="' . $caller->Id . '";';
-//        return $sql;
-            $sql = "UPDATE ivr_sukkah.caller SET Name='" . $caller->Name . "', Address='" . $caller->Address . "', City='" . $caller->City . "',PhoneNumber='" . $caller->PhoneNumber . "',
-                    OtherPhone='" . $caller->OtherPhone . "', Notes='" . $caller->Notes . "' WHERE Id='" . $caller->Id . "';";
+        $sql = "UPDATE `ivr_sukkah`.`caller` SET "
+                . "`Name`='" . $caller->Name . "', "
+                . "`Address`='" . $caller->Address . "', "
+                . "`City`='" . $caller->City . "', "
+                . "`PhoneNumber`='" . $caller->PhoneNumber . "', "
+                . "`OtherPhone`='" . $caller->OtherPhone . "', "
+                . "`Notes`='" . $caller->Notes . "' ,"
+                . "`Region`='" . $caller->Region . "' "
+                
+                . "WHERE `Id`='" . $caller->Id . "';";
         return $sql;
     }
-
     public function GetCallerByPhoneNumber($phoneNumber) {
 
         $sql = " SELECT * FROM `ivr_sukkah`.`caller` WHERE `caller`.`PhoneNumber` = '" . $phoneNumber . "'";

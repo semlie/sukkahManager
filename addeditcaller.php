@@ -51,6 +51,12 @@ var_dump($data);
 
 
                                 <div class="form-group">
+                                    <label>איזור</label>
+                                    <input class="form-control" name = "Region" value="<?php echo $data->Region; ?>" >
+                                    <p class="help-block">שם.</p>
+                                </div>
+                                <div class="form-group">
+                                <div class="form-group">
                                     <label>שם</label>
                                     <input class="form-control" name = "Name" value="<?php echo $data->Name; ?>" >
                                     <p class="help-block">שם.</p>

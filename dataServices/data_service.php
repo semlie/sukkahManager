@@ -41,15 +41,14 @@ abstract class DataService {
     }
 
     public function Update(ModelInfo $object) {
-            $sql = $this->GetUpdateString($object);
-            saveToFile($sql);
-            return $this->InsertionQuery($sql);
-
+        $sql = $this->GetUpdateString($object);
+        saveToFile($sql);
+        return $this->InsertionQuery($sql);
     }
 
     private function Query($sql, $isInsert = 0) {
         $conn = mysqli_connect($this->contects->dbhost, $this->contects->dbuser, $this->contects->dbpass, $this->contects->db);
-        
+
         //mysqli_set_charset($conn,"utf8");
 // Check connection
         if (!$conn) {
@@ -75,6 +74,18 @@ abstract class DataService {
             return $result;
         } else {
             return null;
+        }
+    }
+
+    protected function DeleteQuery($sql) {
+
+        $result = $this->Query($sql);
+        // var_dump($result);
+        if ($result == TRUE ) {
+            // output data of each row
+            return $result;
+        } else {
+            return FALSE;
         }
     }
 

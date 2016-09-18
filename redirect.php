@@ -11,6 +11,10 @@ function parsGet() {
        $data= isset($_GET["callerid"])?$manager->CreateOrder($_GET["callerid"]):'';
        Redirect("orderdetails.php?orderid=".$data);
     }
+     if ($func == "deleteorder") {
+       $data= isset($_GET["orderid"])?$manager->DeleteOrder($_GET["orderid"]):'';
+       Redirect("orders.php");
+    }
 }
 
 function parsPost() {

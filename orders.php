@@ -39,6 +39,7 @@ require_once './managers/web_manager.php';
                                         <thead>
                                             <tr>
                                                 <th>OrderId</th>
+                                                <th>Region</th>
                                                 <th>Name</th>
                                                 <th>Address</th>
                                                 <th>City</th>
@@ -51,6 +52,7 @@ require_once './managers/web_manager.php';
                                                 <th>TotalPrice</th>
                                                 <th>TotalItems</th>
                                                 <th>edit</th>
+                                                <th>delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -58,6 +60,7 @@ require_once './managers/web_manager.php';
                                                 ?>
                                                 <tr class="odd gradeX">
                                                     <td><a href="orderdetails.php?orderid=<?php echo $value->OrderId; ?>"> <?php echo $value->OrderId; ?></a> </td>
+                                                    <td><?php echo $value->Region; ?></td>
                                                     <td><?php echo $value->Name; ?></td>
                                                     <td><?php echo $value->Address; ?></td>
                                                     <td><?php echo $value->City; ?></td>
@@ -72,6 +75,7 @@ require_once './managers/web_manager.php';
                                                 ?></td>
                                                     <td><?php echo $value->TotalItems; ?></td>
                                                     <td><a href="editorders.php?orderid=<?php echo $value->OrderId; ?>"> Edit</a> </td>
+                                                    <td><a href="redirect.php?func=deleteorder&orderid=<?php echo $value->OrderId; ?>"> delete</a> </td>
 
                                                 </tr>
 <?php } ?>

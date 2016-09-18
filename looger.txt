@@ -38,3 +38,5 @@ UPDATE ivr_sukkah.caller SET Name='יעקבew', Address='בבא סאלי 13', Ci
                     OtherPhone='527634791', Notes='' WHERE Id='29';
 UPDATE ivr_sukkah.caller SET Name='יעקבew', Address='בבא סאלי 13', City='Modiein Eilit',PhoneNumber='527634791',
                     OtherPhone='527634791', Notes='' WHERE Id='29';
+UPDATE `orders` SET `CallerItemId`='20',`Is_Delivered`='0',`Is_Paid`='0',`TotalQuantity`='2',`TotalItems`='1',`TotalPrice`='110' WHERE `orders`.`Id` = '3'
+UPDATE `orders` SET `CallerItemId`='21',`Is_Delivered`='0',`Is_Paid`='0',`TotalQuantity`='2',`TotalItems`='1',`TotalPrice`='110' WHERE `orders`.`Id` = '4'

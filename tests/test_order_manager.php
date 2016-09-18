@@ -12,12 +12,13 @@ var_dump($open);
 $order = $manager->GetOrderById(2);
 var_dump($order);
 
+$manager->DeleteOrder(2);
 $orderItems = $manager->GetOrderItems($order->OrderId);
 var_dump($orderItems);
 
 $orderItems[0]->Quantity = $orderItems[0]->Quantity+2;
 var_dump($orderItems);
-$manager->UpdateOrderItem($orderItems[0]);
+//$manager->UpdateOrderItem($orderItems[0]);
 
 $order1 = $manager->GetOrderById(2);
 var_dump($order1);

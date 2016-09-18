@@ -62,6 +62,8 @@ class order_dataService extends DataService implements sqlModel {
         $model->PhoneNumber = $row['PhoneNumber'];
         $model->OtherPhone = $row['OtherPhone'];
         $model->Notes = $row['Notes'];
+        $model->Region = $row['Region'];
+        
 
         return $model;
     }
@@ -89,7 +91,7 @@ class order_dataService extends DataService implements sqlModel {
             $ext = $ext." AND (`orders`.`Is_Delivered` = '0' OR `orders`.`Is_Paid` = '0')";
         }        
         $sql = "SELECT `caller`.`Name`, `caller`.`Address`, `caller`.`City`, `caller`.`PhoneNumber`, 
-                `caller`.`OtherPhone`, `caller`.`Notes`,`caller_item`.`CallerId`,
+                `caller`.`OtherPhone`, `caller`.`Notes`, `caller`.`Region`,`caller_item`.`CallerId`,
                 `orders`.`Id` OrderId, `orders`.`CallerItemId`, `orders`.`TimeStamp`, `orders`.`Is_Delivered`, 
                 `orders`.`Is_Paid`, `orders`.`TotalQuantity`,
                 `orders`.`TotalPrice`, `orders`.`TotalItems`
@@ -131,6 +133,13 @@ class order_dataService extends DataService implements sqlModel {
         $row = ($result != FALSE) ? mysqli_fetch_assoc($result) : '';
         $modelResult = ($row > 0) ? $this->mapToExtendModel($row) : '';
         return $modelResult;
+    }
+    
+    public function DeleteOrder($orderId) {
+         $sql = "delete from orders where Id ='".$orderId."'";
+         $result = $this->DeleteQuery($sql);
+
+
     }
 
 }

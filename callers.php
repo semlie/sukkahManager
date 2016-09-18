@@ -28,6 +28,7 @@ $data = $manager->GetAllCallers();
                             <thead>
                                 <tr>
                                     <th>OrderId</th>
+                                    <th>Region</th>
                                     <th>Name</th>
                                     <th>Address</th>
                                     <th>City</th>
@@ -45,6 +46,7 @@ $data = $manager->GetAllCallers();
                                     <tr class="odd gradeX">
                                         <td><a href="callersdetails.php?callerid=<?php echo $value->Id; ?>">
     <?php echo $value->Id; ?></a> </td>
+                                        <td><?php echo $value->Region; ?></td>
                                         <td><?php echo $value->Name; ?></td>
                                         <td><?php echo $value->Address; ?></td>
                                         <td><?php echo $value->City; ?></td>

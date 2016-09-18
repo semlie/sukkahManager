@@ -33,6 +33,10 @@ class web_manager {
         return $this->orderManager->GetOrderById($orderId);
     }
 
+    public function DeleteOrder($orderId) {
+        $this->orderManager->DeleteOrder($orderId);
+    }
+
     public function GetAllOrderItems($orderId) {
         return $this->orderManager->GetOrderItems($orderId);
     }
@@ -78,6 +82,8 @@ class web_manager {
         $result->PhoneNumber = $this->clean($row['PhoneNumber']);
         $result->OtherPhone = $this->clean($row['OtherPhone']);
         $result->Notes = $this->clean($row['Notes']);
+        $result->Region = isset($row['Region'])?$this->clean($row['Region']):'';
+        
         $result->TimeStamp = isset($row['TimeStamp']) ? $row['TimeStamp'] : '';
 
         return $result;

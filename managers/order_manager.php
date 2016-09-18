@@ -64,7 +64,10 @@ class order_manager {
     public function GetOrderById($orderId) {
         return $this->orderDataService->GetOrderExtendById($orderId);
     }
-
+    public function DeleteOrder($orderId) {
+        $this->orderItemDataService->DeleteOrderItems($orderId);
+        $this->orderDataService->DeleteOrder($orderId);
+    }
     public function getOrderItemTotalPrice($item) {
 
         $product = $this->productManager->getProbuctById($item->ProductId);

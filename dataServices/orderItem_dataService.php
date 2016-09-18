@@ -78,6 +78,10 @@ class orderItem_dataService extends DataService implements sqlModel {
         return $modelResult;
 
     }
+    public function DeleteOrderItems($orderId) {
+        $sql = "DELETE FROM `orderitems` WHERE `OrderId`='".$orderId."'";
+        $this->DeleteQuery($sql);
+    }
     public function GetAllItemsOfOrderToPrintModel($orderId){
         $sql = " SELECT `orderitems`.`Id`,`orderitems`.`OrderId`, `orderitems`.`ProductId` ,`products`.`Price`, `orderitems`.`Quantity`,`products`.`Name`,`products`.`CatalogNumber`
                 FROM `ivr_sukkah`.`orderitems`
