@@ -3,16 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="אשירה">
+            <file>file:/I:/www/sukkaMeneger/dataServices/caller_dataService.php</file>
             <file>file:/I:/www/sukkaMeneger/callers.php</file>
-            <file>file:/I:/www/sukkaMeneger/addeditproducts.php</file>
             <file>file:/I:/www/sukkaMeneger/orders.php</file>
-            <file>file:/I:/www/sukkaMeneger/products.php</file>
             <file>file:/I:/www/sukkaMeneger/dataServices/order_dataService.php</file>
+            <file>file:/I:/www/sukkaMeneger/dataServices/data_service.php</file>
             <file>file:/I:/www/sukkaMeneger/models/order.php</file>
+            <file>file:/I:/www/sukkaMeneger/models/caller.php</file>
             <file>file:/I:/www/sukkaMeneger/managers/web_manager.php</file>
             <file>file:/I:/www/sukkaMeneger/managers/order_manager.php</file>
+            <file>file:/I:/www/sukkaMeneger/tests/test_order_manager.php</file>
+            <file>file:/I:/www/sukkaMeneger/models/orders_extend_model.php</file>
             <file>file:/I:/www/sukkaMeneger/redirect.php</file>
-            <file>file:/I:/www/sukkaMeneger/editorders.php</file>
+            <file>file:/I:/www/sukkaMeneger/dataServices/orderItem_dataService.php</file>
             <file>file:/I:/www/sukkaMeneger/orderdetails.php</file>
             <file>file:/I:/www/sukkaMeneger/addeditcaller.php</file>
             <file>file:/I:/www/sukkaMeneger/managers/caller_manager.php</file>

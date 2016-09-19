@@ -49,6 +49,11 @@ var_dump($data);
                                                 <input type="hidden" class="form-control" name = "CallerId" value="<?php echo $data->CallerId; ?>" >
                                             </div>
                                             <div class="form-group">
+                                                <label>Region</label>
+                                                <input class="form-control" name = "Region" value="<?php echo $data->Region; ?>" >
+                                                <p class="help-block">שם.</p>
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Name</label>
                                                 <input class="form-control" name = "Name" value="<?php echo $data->Name; ?>" >
                                                 <p class="help-block">שם.</p>

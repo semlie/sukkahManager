@@ -36,6 +36,7 @@ function discountPrice($price) {
                                         <thead>
                                             <tr>
                                                 <th>OrderId</th>
+                                                <th>Region</th>
                                                 <th>Name</th>
                                                 <th>Address</th>
                                                 <th>City</th>
@@ -51,6 +52,7 @@ function discountPrice($price) {
 
                                             <tr class="odd gradeX">
                                                 <td><?php echo $data->OrderId; ?></td>
+                                                <td><?php echo $data->Region; ?></td>
                                                 <td><?php echo $data->Name; ?></td>
                                                 <td><?php echo $data->Address; ?></td>
                                                 <td><?php echo $data->City; ?></td>
