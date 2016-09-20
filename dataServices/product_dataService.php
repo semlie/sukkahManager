@@ -69,7 +69,7 @@ class product_dataService extends DataService implements sqlModel {
                sum(`orderitems`.`Quantity`) as TotelQuntity,
                sum(`orderitems`.`Quantity`)*`products`.`Price` as TotelPrice
 
-               FROM `ivr_sukkah`.`orderitems`,`ivr_sukkah`.`products`
+               FROM `ivr_sukkah`.`orderitems`,`ivr_sukkah`.`products`,`ivr_sukkah`.`caller`
                where `orderitems`.`ProductId` = `products`.`Id`
                 AND `orderitems`.`CollerId` =  `caller`.`Id`
                 And `caller`.`Region` = '1'
