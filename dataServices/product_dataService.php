@@ -62,8 +62,8 @@ class product_dataService extends DataService implements sqlModel {
         return $sql;
     }
 
-    public function GetSalesProdactReport() {
-        $sql = "SELECT `orderitems`.`ProductId`, 
+    public function GetSalesProdactReport($region = FALSE) {
+        $sqlTmp = 'SELECT `orderitems`.`ProductId`, 
                 `orderitems`.`Quantity`, 
                `products`.`Id`,`products`.`CatalogNumber`, `products`.`Name`, `products`.`Price`, 
                sum(`orderitems`.`Quantity`) as TotelQuntity,
@@ -72,9 +72,9 @@ class product_dataService extends DataService implements sqlModel {
                FROM `ivr_sukkah`.`orderitems`,`ivr_sukkah`.`products`,`ivr_sukkah`.`caller`
                where `orderitems`.`ProductId` = `products`.`Id`
                 AND `orderitems`.`CollerId` =  `caller`.`Id`
-                And `caller`.`Region` = '3'
-
-               group by `orderitems`.`ProductId`;";
+               %1$s
+               group by `orderitems`.`ProductId`;';
+        $sql = sprintf($sqlTmp,$region!=FALSE? "And `caller`.`Region` = '$region'":'');
         
         $result = $this->selectQuery($sql);
         $modelResult = array();
