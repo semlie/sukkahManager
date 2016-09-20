@@ -71,8 +71,8 @@ class product_dataService extends DataService implements sqlModel {
 
                FROM `ivr_sukkah`.`orderitems`,`ivr_sukkah`.`products`
                where `orderitems`.`ProductId` = `products`.`Id`
-                AND orderitems.CollerId =  caller.Id
-                And caller.Region = 1
+                AND `orderitems`.`CollerId` =  `caller`.`Id`
+                And `caller`.`Region` = 1
 
                group by `orderitems`.`ProductId`;";
         
