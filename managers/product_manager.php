@@ -38,6 +38,10 @@ class product_manager {
         $sales = $this->productDataService->GetSalesProdactReport();
         return $sales;
     }
+    public function GetProdectSoldReportFiltered($regionId) {
+        $sales = $this->productDataService->GetSalesProdactReport($regionId);
+        return $sales;
+    }
 
     public function GetAllProdects() {
        return $this->productDataService->GetAll();

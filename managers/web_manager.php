@@ -44,6 +44,9 @@ class web_manager {
     public function GroupingProduct() {
         return $this->productManager->GetProdectSoldReport();
     }
+    public function GroupingFilteredProduct($regionId) {
+        return $this->productManager->GetProdectSoldReportFiltered($regionId);
+    }
 
     public function GetOrderItem($orderItemId) {
         return $this->orderManager->GetOrderItem($orderItemId);
