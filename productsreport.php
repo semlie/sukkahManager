@@ -7,12 +7,27 @@ require_once './managers/web_manager.php';
 $manager = new web_manager();
 $getAddress = htmlspecialchars($_SERVER["PHP_SELF"]) . "?func=filter";
 //            $data = $manager->GetAllOrders();
+$data ='';
 if ($func == 'filter') {
     $region = isset($_GET["region"]) ? $_GET["region"] : '3';
     $data = $manager->GroupingFilteredProduct($region);
 } else {
 
     $data = $manager->GroupingProduct();
+}
+$totalPrice = GetTotlPrice($data);
+$totalQuntity =  GetTotlaQuntity($data);
+function _getTotalQuntity($carry,$item) {
+    return $carry+$item->Quntity;
+}
+function _getTotalPrice($carry,$item) {
+    return $carry+$item->TotelPrice;
+}
+function GetTotlaQuntity($data) {
+    return array_reduce($data, '_getTotalQuntity');
+}
+function GetTotlPrice($data) {
+    return array_reduce($data, '_getTotalPrice');
 }
 ?>
 
@@ -77,6 +92,11 @@ if ($func == 'filter') {
 
                             </tbody>
                         </table>
+                        
+                    </div>
+                    <div class="col-lg-6">
+                        Total price: <?php echo $totalPrice; ?><br>
+                        Total Quantity: <?php echo $totalQuntity; ?><br>
                     </div>
                     <!-- /.table-responsive -->
 
