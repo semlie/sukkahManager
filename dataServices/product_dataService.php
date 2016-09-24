@@ -63,18 +63,34 @@ class product_dataService extends DataService implements sqlModel {
     }
 
     public function GetSalesProdactReport($region = FALSE) {
-        $sqlTmp = 'SELECT `orderitems`.`ProductId`, 
-                `orderitems`.`Quantity`, 
-               `products`.`Id`,`products`.`CatalogNumber`, `products`.`Name`, `products`.`Price`, 
-               sum(`orderitems`.`Quantity`) as TotelQuntity,
-               sum(`orderitems`.`Quantity`)*`products`.`Price` as TotelPrice
-
-               FROM `ivr_sukkah`.`orderitems`,`ivr_sukkah`.`products`,`ivr_sukkah`.`caller`
-               where `orderitems`.`ProductId` = `products`.`Id`
-                AND `orderitems`.`CollerId` =  `caller`.`Id`
-               %1$s
-               group by `orderitems`.`ProductId`;';
-        $sql = sprintf($sqlTmp,$region!=FALSE? "And `caller`.`Region` = '$region'":'');
+//        $sqlTmp = 'SELECT `orderitems`.`ProductId`, 
+//                `orderitems`.`Quantity`, 
+//               `products`.`Id`,`products`.`CatalogNumber`, `products`.`Name`, `products`.`Price`, 
+//               sum(`orderitems`.`Quantity`) as TotelQuntity,
+//               sum(`orderitems`.`Quantity`)*`products`.`Price` as TotelPrice
+//
+//               FROM `ivr_sukkah`.`orderitems`,`ivr_sukkah`.`products`,`ivr_sukkah`.`caller`
+//               where `orderitems`.`ProductId` = `products`.`Id`
+//                AND `orderitems`.`CollerId` =  `caller`.`Id`
+//               %1$s
+//               group by `orderitems`.`ProductId`;';
+//      
+        $sqlTmp='select ProductId,
+Name,
+CatalogNumber,
+Category,
+sum(Quantity) as TotelQuntity,
+sum(Quantity)* Price as TotelPrice
+ from (SELECT orderitems.ProductId , 
+ orderitems.Quantity, orderitems.CollerId,products.CatalogNumber, products.Name, products.Price,products.Category,
+caller_item.Id callerItemId, caller.Id
+FROM ivr_sukkah.orderitems 
+left join ivr_sukkah.products on (orderitems.ProductId = products.Id) 
+left join caller_item on(orderitems.CollerId = caller_item.Id)
+left join caller on(caller_item.CallerId = caller.Id)
+%1$s)as t
+group by ProductId';
+        $sql = sprintf($sqlTmp,$region!=FALSE? "where `caller`.`Region` = '$region'":'');
         
         $result = $this->selectQuery($sql);
         $modelResult = array();
