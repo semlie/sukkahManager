@@ -52,7 +52,9 @@ class order_manager {
     public function GetAllOpenOrders() {
         return $this->orderDataService->GetAllOpenOrdersExtend();
     }
-
+    public function GetAllOpenOrdersFilter($region) {
+        return $this->orderDataService->GetAllOpenOrdersExtendFilter($region);
+    }
     public function GetOrderItems($orderId) {
         return $this->orderItemDataService->GetAllItemsOfOrderToPrintModel($orderId);
     }

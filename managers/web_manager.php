@@ -28,6 +28,9 @@ class web_manager {
     public function GetAllOpenOrders() {
         return $this->orderManager->GetAllOpenOrders();
     }
+    public function GetAllOpenOrdersFilterd($region) {
+        return $this->orderManager->GetAllOpenOrdersFilter($region);
+    }
 
     public function GetOrder($orderId) {
         return $this->orderManager->GetOrderById($orderId);

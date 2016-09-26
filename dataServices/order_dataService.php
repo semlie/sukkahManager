@@ -82,14 +82,17 @@ class order_dataService extends DataService implements sqlModel {
         return $model;
     }
 
-    private function OrderExtendModelSql($orderId = FALSE,$open = FALSE) {
+    private function OrderExtendModelSql($orderId = FALSE,$open = FALSE,$region =FALSE) {
         $ext = "";
         if ($orderId != 0) {
             $ext = "AND `orders`.`Id` = '" . $orderId . "'";
         }
         if ($open != 0) {
             $ext = $ext." AND (`orders`.`Is_Delivered` = '0' OR `orders`.`Is_Paid` = '0')";
-        }        
+        } 
+        if ($region != 0) {
+            $ext = $ext." AND (`caller`.`Region` = '".$region."' )";
+        } 
         $sql = "SELECT `caller`.`Name`, `caller`.`Address`, `caller`.`City`, `caller`.`PhoneNumber`, 
                 `caller`.`OtherPhone`, `caller`.`Notes`, `caller`.`Region`,`caller_item`.`CallerId`,
                 `orders`.`Id` OrderId, `orders`.`CallerItemId`, `orders`.`TimeStamp`, `orders`.`Is_Delivered`, 
@@ -117,6 +120,19 @@ class order_dataService extends DataService implements sqlModel {
     public function GetAllOpenOrdersExtend() {
 
         $sql = $this->OrderExtendModelSql("0","1");
+        $result = $this->selectQuery($sql);
+        $modelResult = array();
+        if ($result != FALSE) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                // var_dump($row);
+                $modelResult[] = $this->mapToExtendModel($row);
+            }
+        }
+        return $modelResult;
+    }
+    public function GetAllOpenOrdersExtendFilter($region) {
+
+        $sql = $this->OrderExtendModelSql("0","1",$region);
         $result = $this->selectQuery($sql);
         $modelResult = array();
         if ($result != FALSE) {
